@@ -1,14 +1,21 @@
 import { RouteObject } from 'react-router-dom'
-import Home from './pages/Home'
 import About from './pages/About'
 import Guest from './pages/layouts/Guest'
 import Register from './pages/auth/Register'
-import Login from './pages/auth/Login' 
+import Login from './pages/auth/Login'
+import AppLayout from './pages/layouts/AppLayout'
+import Dashboard from './pages/Dashboard'
 
 export const routes: RouteObject[] = [
   {
-    path: '/',
-    element: <Home />,
+    path: '',
+    element: <AppLayout />,
+    children: [
+      {
+        path: '/',
+        element: <Dashboard />,
+      },
+    ]
   },
   {
     path: '/about',
@@ -16,15 +23,15 @@ export const routes: RouteObject[] = [
   },
   {
     path: '/auth',
-    element: <Guest/>,
+    element: <Guest />,
     children: [
       {
         path: 'register',
-        element: <Register/>,
+        element: <Register />,
       },
       {
         path: 'login',
-        element: <Login/>,
+        element: <Login />,
       }
     ],
   }
