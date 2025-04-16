@@ -1,23 +1,16 @@
-import './App.css'
-import { Button } from "@/components/ui/button"
+import { BrowserRouter, useRoutes } from 'react-router-dom'
+import { routes } from './routes'
 
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
+const AppRoutes = () => {
+  const element = useRoutes(routes)
+  return element
+}
 
-function App() {
+const App = () => {
   return (
-    <>
-      
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   )
 }
 
